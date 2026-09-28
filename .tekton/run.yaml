@@ -1,0 +1,12 @@
+apiVersion: tekton.dev/v1
+kind: PipelineRun
+metadata:
+  generateName: petclinic-ci-run-
+spec:
+  pipelineRef:
+    name: petclinic-ci
+  params:
+    - name: git-revision
+      value: main
+  taskRunTemplate:
+    serviceAccountName: pipeline
